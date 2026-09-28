@@ -13,7 +13,7 @@ flowchart TB
   subgraph NB["Nebula PC (Ryzen 7 7800X3D, RTX 5070 Ti)"]
     N1["Ollama, Open WebUI, n8n"]
   end
-  subgraph NAS["NAS server: extreme low budget build (planned)"]
+  subgraph NAS["NAS server (planned)"]
     NA1["Topton N5105 · Jonsbo N2 · 4x 6TB HDD"]
     NA2["Immich, NextCloud"]
   end
