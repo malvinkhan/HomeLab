@@ -34,7 +34,7 @@ flowchart TB
 ### MediaServer
 - Hardware: Acer laptop (model and specs to add)
 - OS: Debian, running Docker
-- Role: media stack (Jellyfin, Sonarr, Radarr, Prowlarr, Seerr)
+- Role: media stack (Jellyfin, Sonarr, Radarr, Prowlarr, Seerr, Pi-hole, Speedtest tracker, Filebrowser, Home Assistant)
 - Managed remotely over SSH from the Nebula PC
 
 ### Nebula PC
@@ -68,6 +68,10 @@ Status: hardware sourced, build and OS setup not yet complete.
 - Prowlarr
 - qBittorrent
 - Seerr
+- Pi-Hole (Network ad-blocker)
+- Speedtest tracker (internet speed activity log)
+- Filebrowser (visual Linux folder management)
+- Home Assistant 
 
 **Home automation**
 - Home Assistant, with Tapo cameras and Google Calendar integration
@@ -86,7 +90,7 @@ Status: hardware sourced, build and OS setup not yet complete.
 - Open WebUI
 
 **Finance**
-- Notion tracker with Transactions and Warranties databases
+- Notion tracker with Transactions and Warranties databases (ongoing) 
 
 ## Current status and roadmap
 
