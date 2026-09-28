@@ -25,4 +25,5 @@ Newest entries first.
 - Added Vaultwarden and Home Assistant (Tapo cameras, Google Calendar integration)
 - Added an n8n Telegram webhook pipeline for receipt tracking
 - Added a Notion finance tracker (Transactions and Warranties databases)
+- Added automated notification webhooks for new movies/shows added. User will be aware of completed requests
 - Fixed the Jellyfin/Sonarr season folder structure
