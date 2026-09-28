@@ -13,7 +13,10 @@ flowchart TB
   subgraph NB["Nebula PC (Ryzen 7 7800X3D, RTX 5070 Ti)"]
     N1["Ollama, Open WebUI, n8n"]
   end
-  NAS["NAS server: cloud storage (planned)"]
+  subgraph NAS["NAS server: extreme low budget build (planned)"]
+    NA1["Topton N5105 · Jonsbo N2 · 4x 6TB HDD"]
+    NA2["Immich, NextCloud"]
+  end
   NET --- MS
   NET --- NB
   NET -.- NAS
@@ -24,7 +27,7 @@ flowchart TB
 |---|---|---|---|
 | MediaServer | Acer laptop | Media stack | 🟢 Live |
 | Nebula PC | Ryzen 7 7800X3D, RTX 5070 Ti | Local AI and automation | 🟢 Live |
-| NAS server | To be decided | Cloud storage | 🟡 Planned |
+| NAS server | Topton N5105 NAS build | Cloud storage | 🟡 Planned — hardware sourced |
 
 ## Hardware
 
@@ -42,10 +45,19 @@ flowchart TB
 - OS: (Windows)
 - Role: local AI (Ollama, Open WebUI) and n8n
 
-### NAS server (planned)
-- Purpose: cloud storage Immich and NextCloud
-- Status: to be added
-- Hardware and OS: to be decided
+### NAS server (planned) — Extreme Low Budget Build
+
+Purpose: cloud storage (Immich and NextCloud). Sourced from AliExpress, Facebook Marketplace, and salvaged parts to keep cost down.
+
+| Component | Name | Price | Notes |
+|---|---|---|---|
+| Motherboard | Topton NAS N5105 | $236.70 | Original listing unavailable; similar model ~$275 on Amazon |
+| RAM | 2 × 8GB sticks | N/A | Salvaged from an old laptop |
+| Case | Jonsbo N2 NAS Mini Case | $181.71 | |
+| PSU | 500W SilverStone EX500-B | $109.00 | |
+| HDD | 4 × 6TB HDD | — | Used data centre drives, bought via Facebook Marketplace |
+
+Status: hardware sourced, build and OS setup not yet complete.
 
 ## Services
 
@@ -78,7 +90,10 @@ flowchart TB
 
 ## Current status and roadmap
 
-- [ ] Add NAS server (cloud storage)
+- [ ] Assemble NAS server hardware (Topton N5105 build)
+- [ ] Test/burn-in used HDDs (SMART checks, badblocks) before trusting data to them
+- [ ] Choose NAS OS (e.g. TrueNAS, Unraid) and set up storage pool (RAID/RAIDZ) for redundancy
+- [ ] Deploy Immich and NextCloud on the NAS
 - [ ] Set up backups (no solution in place yet)
 - [ ] Document Acer laptop specs, Nebula PC OS and network layout
 - [ ] Add docker-compose files to this repo (secrets excluded)
@@ -93,4 +108,5 @@ flowchart TB
 - Workflow automation (n8n, Telegram webhooks)
 - Local LLM hosting (Ollama, Open WebUI)
 - Monitoring and maintenance (Uptime Kuma, Watchtower, Portainer)
+- Budget hardware sourcing and NAS build planning
 - Troubleshooting: diagnosing breakages from major-version updates (see the changelog)

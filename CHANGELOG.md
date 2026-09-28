@@ -6,6 +6,7 @@ Newest entries first.
 - Started formal documentation of the homelab (this repo)
 - Documented: the Acer laptop is currently serving as the MediaServer
 - Planned: NAS server for cloud storage
+- Sourced hardware for an extreme-low-budget NAS build: Topton N5105 motherboard, salvaged 2x8GB RAM, Jonsbo N2 case, 500W SilverStone EX500-B PSU, and 4x 6TB used data centre HDDs (Facebook Marketplace)
 
 ## 2026-09-25
 - **Fixed:** Jellyseerr login failure ("Something went wrong while trying to sign in"). Jellyfin had moved to 12.1.0 (likely via a Watchtower auto-update) while Jellyseerr was on 2.7.3, and the two were incompatible. Logs showed constant 401 errors from Jellyfin, and a freshly generated API key tested directly against Jellyfin still returned 401, which ruled out the key and the network.
