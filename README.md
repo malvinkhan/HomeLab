@@ -39,11 +39,11 @@ flowchart TB
 - GPU: RTX 5070 Ti
 - RAM: 32 GB
 - Storage: 1 TB SSD
-- OS: (to add)
+- OS: (Windows)
 - Role: local AI (Ollama, Open WebUI) and n8n
 
 ### NAS server (planned)
-- Purpose: cloud storage
+- Purpose: cloud storage Immich and NextCloud
 - Status: to be added
 - Hardware and OS: to be decided
 
