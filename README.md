@@ -94,7 +94,7 @@ Status: hardware sourced, build and OS setup not yet complete.
 
 ## n8n automation
 
-**Receipt-to-warranty tracker** ([full write-up and workflow export](n8n/README.md)): send a photo of a receipt to a Telegram bot and it is logged in the Notion Warranties database, with the receipt image attached. A local vision model on the Nebula PC reads the receipt, so nothing is sent to a cloud AI service. A daily check messages me when a warranty or return window is about to end.
+**Receipt-to-warranty tracker** ([full write-up and workflow export]([n8n/README.md](https://github.com/malvinkhan/HomeLab/blob/3977f7d82ff03f62636ad497dc321267fec12b73/n8n/README))): send a photo of a receipt to a Telegram bot and it is logged in the Notion Warranties database, with the receipt image attached. A local vision model on the Nebula PC reads the receipt, so nothing is sent to a cloud AI service. A daily check messages me when a warranty or return window is about to end.
 
 ```mermaid
 flowchart LR
