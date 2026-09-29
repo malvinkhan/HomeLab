@@ -75,7 +75,7 @@ Status: hardware sourced, build and OS setup not yet complete.
 
 **Home automation**
 - Home Assistant, with Tapo cameras and Google Calendar integration
-- n8n: Telegram webhook pipeline for receipt tracking
+- n8n: receipt-to-warranty tracker (Telegram, local Ollama vision model, Notion). See [n8n/](n8n/README.md)
 
 **Infrastructure**
 - Vaultwarden
@@ -91,6 +91,26 @@ Status: hardware sourced, build and OS setup not yet complete.
 
 **Finance**
 - Notion tracker with Transactions and Warranties databases (ongoing) 
+
+## n8n automation
+
+**Receipt-to-warranty tracker** ([full write-up and workflow export](n8n/README.md)): send a photo of a receipt to a Telegram bot and it is logged in the Notion Warranties database, with the receipt image attached. A local vision model on the Nebula PC reads the receipt, so nothing is sent to a cloud AI service. A daily check messages me when a warranty or return window is about to end.
+
+```mermaid
+flowchart LR
+  A["Receipt photo in Telegram"] --> B["n8n polls the bot every minute"]
+  B --> C["Ollama vision model reads the receipt"]
+  C --> D{"Warranty printed?"}
+  D -- yes --> E["Coverage: Warranty"]
+  D -- no --> F{"Return window printed?"}
+  F -- yes --> G["Coverage: Return window"]
+  F -- no --> H["Coverage: None"]
+  E --> I["Notion Warranties row + receipt image"]
+  G --> I
+  H --> I
+  I --> J["Telegram confirmation"]
+  K["Daily 8am check"] --> L["Message: coverage ending in 30 days"]
+```
 
 ## Current status and roadmap
 
@@ -109,7 +129,8 @@ Status: hardware sourced, build and OS setup not yet complete.
 
 - Linux (Debian) administration and Docker
 - Self-hosting and secure remote access (Tailscale, Vaultwarden)
-- Workflow automation (n8n, Telegram webhooks)
+- Workflow automation (n8n, Telegram Bot API, Notion API)
+- Applying a local vision model to a real workflow (receipt extraction with Ollama)
 - Local LLM hosting (Ollama, Open WebUI)
 - Monitoring and maintenance (Uptime Kuma, Watchtower, Portainer)
 - Budget hardware sourcing and NAS build planning
