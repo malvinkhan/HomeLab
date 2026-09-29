@@ -2,6 +2,13 @@
 
 Newest entries first.
 
+## 2026-09-30
+- **Added:** n8n receipt-to-warranty tracker. A photo sent to a Telegram bot is read by a local vision model on Ollama (`qwen2.5vl:7b`), which extracts the item, retailer, price, purchase date and any printed warranty period or return window. A row is logged in the Notion Warranties database with the receipt image attached, and a daily 8am check messages me when coverage ends in the next 30 days. Workflow export and setup notes are in [`n8n/`](n8n/README.md).
+- **Rule:** use the warranty printed on the receipt, otherwise the printed return window, otherwise record Coverage Type "None". No default warranty is assumed.
+- **Changed:** Notion Warranties database gained Coverage Type and Coverage End columns, so warranties and return windows share one expiry date and one reminder check.
+- **Changed:** replaced the Telegram webhook trigger with polling (every minute). n8n runs on localhost and Telegram only delivers webhooks to public HTTPS URLs. Polling needs a dedicated bot, because a bot with a webhook set cannot be polled.
+- **Lesson:** Llama 3.1 8B is text-only, so receipt reading needed a vision-capable model. Local models misread receipts more often than hosted ones, so the Telegram confirmation reply shows exactly what was logged.
+
 ## 2026-09-28
 - Started formal documentation of the homelab (this repo)
 - Documented: the Acer laptop is currently serving as the MediaServer
